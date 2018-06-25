@@ -42,6 +42,7 @@
         if (sess != null){
 
             sendMail.sendEmail(emailAddress,"TPConnect","This is the test");
+            //srms.ttuportal.com/api/student/{indexnumber}/password
             response.sendRedirect("index.jsp?success".concat("This is success"));
         }
     }finally {

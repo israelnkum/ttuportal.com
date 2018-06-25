@@ -1,0 +1,20 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping >
+    <class name = "com.studentmodal.org.Student" table = "complains">
+
+        <id name="student_id" type = "int" column = "complain_id">
+            <generator class="native"/>
+        </id>
+
+        <property name = "fullName" column = "fullName" type = "string"/>
+        <property name = "indexNumber" column = "indexNumber" type = "string"/>
+        <property name = "emailAddress" column = "emailAddress" type = "string"/>
+        <property name = "complain" column = "issues" type = "string"/>
+        <property name="complain_type" column="complain_type" type="string"/>
+
+    </class>
+</hibernate-mapping>

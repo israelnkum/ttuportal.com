@@ -82,7 +82,7 @@
                                 <option value="Misplaced Password">Misplaced Password</option>
                                 <option value="Cannot Register">Cannot Register</option>
                                 <option value="Fees Problem">Fees Problem</option>
-                                <option value="Fees Problem">Others</option>
+                                <option value="Others">Others</option>
                             </select>
 
                             <div class="invalid-feedback">

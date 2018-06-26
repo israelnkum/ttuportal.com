@@ -1,7 +1,13 @@
 package com.studentmodal.org;
 
+import org.json.JSONObject;
+
 import javax.mail.*;
 import javax.mail.internet.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.*;
 public class sendMail {
 
@@ -47,6 +53,46 @@ public class sendMail {
 
 
 
+    }
+
+    public static String password;
+    public static String username;
+    public static String fetchStudentPassword(String stdPassword){
+        username = stdPassword;
+        try{
+
+
+            String webService = "http://srms.ttuportal.com/api/student/"+stdPassword+"/password";
+            URL url = new URL(webService);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("GET");
+            connection.setRequestProperty("ACCEPT","application/json");
+            if(connection.getResponseCode()== 200){
+                BufferedReader br = new BufferedReader(new InputStreamReader((connection.getInputStream())));
+
+                String output;
+                System.out.println("Out is ...................");
+
+                while ((output = br.readLine()) != null){
+                  //   System.out.println(output);
+
+                    JSONObject jsonObject = new JSONObject(output);
+
+                    // String
+
+                  //  String pssword = jsonObject.getString("data");
+                  //  System.out.println(pssword);
+                    password = jsonObject.getString("data");
+
+                }
+
+
+                connection.disconnect();
+            }
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return stdPassword;
     }
 
 }

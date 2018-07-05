@@ -50,7 +50,9 @@
                         emailAddress,
                         "TPConnect Office",
                         "Your new password is " + newPassword +
-                                " and your Username is "+ newUsername+ " Thanks");
+                                " and your Username is "+ newUsername+ " Thanks.\n" +
+                                "Follow the link below to login with your details \n" +
+                                "http://records.ttuportal.com/");
 
                 response.sendRedirect("index.jsp?success".concat("This is success"));
             }else{
@@ -59,7 +61,7 @@
                 sendMail.sendEmail(
                         emailAddress,
                         "TPConnect Office",
-                        "We have received your Complain and we are working on it Thank you");
+                        "We have received your Complain and we are working on it Thank you.");
 
                 response.sendRedirect("index.jsp?success".concat("This is success"));
             }
